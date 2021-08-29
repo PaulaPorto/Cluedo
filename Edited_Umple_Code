@@ -1,0 +1,142 @@
+class Game
+{
+  Cards[] mCircumstances;
+  Cards[] weaponCards;
+  Cards[] characterCards;
+  Cards[] roomCards;
+1 -- 1 WeaponCard;
+  1 -- 1 RoomCard;
+  1 -- 9 Rooms;
+}
+
+class Player
+{
+  Boolean turns;
+  character;
+  room;
+  Tile position;
+  * -- * Tile;
+  1 -- * WeaponCard;
+  1 -- * RoomCard;
+  }
+
+class Cards
+{
+  name;
+}
+
+class Rooms
+{
+  roomDescription;
+  weaponInRoom;
+  void setWeaponInRoom(){}
+}
+
+class Tile
+{
+  }
+
+class Board
+{
+  Tile[] board;
+  1 -- 1 Game;
+  1 -- 1..* Tile;
+  }
+
+class RoomCard
+{
+  isA Cards;
+  description;
+}
+
+class CharacterCard
+{
+  isA Cards;
+  description;
+  * -- 1 Player;
+  1 -- 1 Game;
+}
+
+class WeaponCard
+{
+  isA Cards;
+  description;
+}
+
+class Accusation
+{
+  WeaponCard weapon;
+  CharacterCard character;
+  RoomCard room;
+  Boolean isASuggestion;
+  1 -- 1 Game;
+  1 -- * Player;
+}
+
+
+
+namespace -;
+
+
+class Game
+{
+  position 240 7 168 42;
+  position.association Game__WeaponCard 25,130 97,0;
+  position.association Game__RoomCard 177,130 38,0;
+  position.association Game__Rooms 195,124 19,0;
+}
+
+class Player
+{
+  position 22 366 138 126;
+  position.association Player__Tile 79,0 0,48;
+  position.association Player__WeaponCard 28,126 44,0;
+    position.association Player__RoomCard 139,44 0,2;
+}
+
+class Cards
+{
+  position 660 362 112 79;
+  }
+
+class Rooms
+{
+  position 611 225 214 113;
+}
+
+class Tile
+{
+  position 671 92 109 42;
+  }
+
+class Board
+{
+  position 471 36 109 59;
+  position.association Board__Game 0,22 195,51;
+  position.association Board__Tile 110,30 0,4;
+  }
+
+class RoomCard
+{
+  position 569 532 148 75;
+}
+
+class CharacterCard
+{
+  position 339 551 148 75;
+            position.association CharacterCard__Player 13,0 139,90;
+  position.association CharacterCard__Game 92,0 100,130;
+}
+
+class WeaponCard
+{
+  position 117 548 148 79;
+}
+
+class Accusation
+{
+  position 10 107 194 126;
+  position.association Accusation__Game 194,0 0,49;
+  position.association Accusation__Player 73,126 38,0;
+}
+//$?[End_of_model]$?

@@ -1,0 +1,20 @@
+Legends:
+~ = door
+X = wall
+
+K = Kitchen
+B = Ball Room
+C = Conservatory
+D = Dining Room
+R = Billiard Room
+G = Lounge
+H = Hall
+L = Library
+S = Study
+
+w = White
+g = Green
+P = Peacock
+p = Plum
+s = Scarlett
+m = Mustard
